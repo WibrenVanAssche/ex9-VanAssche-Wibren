@@ -35,9 +35,26 @@ app.get("/Locations/:stad", function (request, response) {
         response.send(location);
     });
     
-});
+}); //uiteindelijk werkend na realisatie dat het Locations/Mechelen moet zijn en niet Locations/:Mechelen
 
+var Location = function(locatieid,naam,stad,capaciteit){
+    this.locatieidid = locatieid;
+    this.naam = naam;
+    this.stad = stad;
+    this.capaciteit = capaciteit;
+};
 
+app.post("/Locations", function(request, response){
+    var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
+    
+    dalLocations.createLocation(location, function (err, location){
+       if (err) {
+            throw err;
+        }
+       response.send(location);
+    });
+})
 
 app.listen(8000);
 console.log("Server started");
+
