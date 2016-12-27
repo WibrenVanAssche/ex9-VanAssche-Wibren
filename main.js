@@ -53,7 +53,19 @@ app.post("/Locations", function(request, response){
         }
        response.send(locatie);
     });
-})
+}); //werkt, getest met brussel
+    //nog validatie nodig
+
+app.put("/Locations/:locatieid", function(request, response){
+    var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
+    dalLocations.updateLocation(request.params.locatieid, Locatie, function(err, locatie){
+        if (err) {
+            console.log(err);
+        }
+       response.send(locatie);
+        
+    });
+});
 
 app.listen(8000);
 console.log("Server started");

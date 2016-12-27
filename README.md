@@ -26,3 +26,13 @@ vreemd probleem: tijdens eerste get via mongoose werd mijn zelf aangemaakte
 'Locations' collectie steeds genegeerd en werd er steed een 'locations' aangemaakt.
 
 De reden niet gevonden dus heb ik gewoon 'Locations' renamed naar 'locations'
+
+---
+Bij aanmaken van data via POST Locations merk ik dat er een _V bij komt in mongodb
+Dit is blijkbaar een versionkey. Ik laat hem gewoon staan. Kan afgezet worden door in het schema
+{ versionKey: false } bij te zetten.
+http://mongoosejs.com/docs/guide.html#versionKey
+
+---
+update:
+http://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-return-updated-document
