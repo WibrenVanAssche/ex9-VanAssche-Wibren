@@ -20,7 +20,7 @@ var LocationSchema = mongoose.Schema({
     }
 });
 
-var Locatie = module.exports = mongoose.model('locations', LocationSchema);
+var Locatie = mongoose.model('locations', LocationSchema);
 
 module.exports =  {
   
@@ -30,6 +30,9 @@ module.exports =  {
   
   listAllLocations : function(callback){
     Locatie.find(callback);
-  }
+  },
+  findLocation : function(stad, callback){
+        Locatie.find({stad:stad}, callback);
+    },
 };
 

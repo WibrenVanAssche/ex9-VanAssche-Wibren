@@ -1,5 +1,6 @@
 var express = require("express");
 var parser = require("body-parser");
+
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/EX9DB");
 
@@ -17,14 +18,24 @@ app.use(parser.json());
 
 
 app.get("/Locations", function (request, response) {
-    dalLocations.listAllLocations(function(err,Locations){
-        if (err) {throw err;}
+    dalLocations.listAllLocations(function (err, Locations) {
+        if (err) {
+            throw err;
+        }
         response.send(Locations);
     });
 }); // getest en werkend
 
 
-
+app.get("/Locations/:stad", function (request, response) {
+    dalLocations.findLocation(request.params.stad, function (err, location) {
+        if (err) {
+            throw err;
+        }
+        response.send(location);
+    });
+    
+});
 
 
 
