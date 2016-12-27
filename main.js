@@ -38,7 +38,7 @@ app.get("/Locations/:stad", function (request, response) {
 }); //uiteindelijk werkend na realisatie dat het Locations/Mechelen moet zijn en niet Locations/:Mechelen
 
 var Location = function(locatieid,naam,stad,capaciteit){
-    this.locatieidid = locatieid;
+    this.locatieid = locatieid;
     this.naam = naam;
     this.stad = stad;
     this.capaciteit = capaciteit;
@@ -51,7 +51,7 @@ app.post("/Locations", function(request, response){
        if (err) {
             console.log(err);
         }
-       response.json(locatie);
+       response.send(locatie);
     });
 })
 
