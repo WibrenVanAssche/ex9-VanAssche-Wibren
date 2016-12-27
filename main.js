@@ -28,13 +28,13 @@ var Location = function(id,name,stad, capaciteit){
 
 app.post("/Locations", function (request, response) {
     "use strict";
-    var Locatie = request.body; 
+    /*var Locatie = request.body; 
 
-    var errors = validator.fieldsNotEmpty(Locatie, "id", "Naam", "Stad", "Capaciteit");
+    var errors = validator.fieldsNotEmpty(Locatie, "id", "name", "stad", "capaciteit");
     if (errors) {
         response.status(400).send({msg: "Following field(s) are mandatory:" + errors.concat()});
         return;
-    }
+    }//basis error handling. zou nog moeten checken op uniekheid van bv ID maar dit lukt me momenteel niet. */
 
     var locatie = new Location(request.body.id,request.body.name,request.body.stad,request.body.capaciteit);
     
