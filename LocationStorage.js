@@ -30,8 +30,8 @@ module.exports =  {
   findLocation : function(stad, callback){
         Locatie.find({stad:stad}, callback);
     },
-  createLocation : function(location, callback){
-      Locatie.create(location, callback);
+  createLocation : function(locatie, callback){
+      Locatie.create(locatie, callback);
   }
 };
 

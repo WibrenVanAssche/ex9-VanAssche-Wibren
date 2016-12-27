@@ -47,11 +47,11 @@ var Location = function(locatieid,naam,stad,capaciteit){
 app.post("/Locations", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
     
-    dalLocations.createLocation(location, function (err, location){
+    dalLocations.createLocation(Locatie, function (err, locatie){
        if (err) {
-            throw err;
+            console.log(err);
         }
-       response.send(location);
+       response.json(locatie);
     });
 })
 
