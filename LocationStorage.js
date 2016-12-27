@@ -1,36 +1,35 @@
-var MongoClient = require('mongodb').MongoClient;
+var mongoose = require("mongoose");
 
-var url = 'mongodb://localhost:27017/EX9DB';
+var LocationSchema = mongoose.Schema({
+    locatieid: {
+        type: Number,
+        required: true,
+        unique: true        
+    },
+    naam: {
+        type: String,
+        required: true  
+    },
+    stad: {
+        type: String,
+        required: true
+    },
+    capaciteit: {
+        type: Number,
+        required: true
+    }
+});
+
+var Locatie = module.exports = mongoose.model('locations', LocationSchema);
 
 module.exports =  {
-  Locations : {},
-  
-  connect: function (err, result) {
-		MongoClient.connect(url, function (error, db) {
-			if (error)
-				throw new Error(error);
-			console.log("Connected successfully to server");
-			result(db);
-		});
-	},
   
   saveLocation : function(Location, callback){
-      this.connect(null, function(db){
-          db.collection('Locations').insert(Location, function(err, result) {
-              db.close();
-              callback();//callback voert anonieme functie uit die in de main wordt meegegeven.
-          });
-      });
+     Locatie.find(callback);
   },
   
   listAllLocations : function(callback){
-    this.connect(null,function (db) {
-        db.collection('Locations').find({}).toArray(function(err,result){
-            db.close();
-            callback(result);
-        }); //wordt opgeroepen in main, haalt alle locations op en stuurt deze terug via callback
-        //  // (callback voert de functie uit die in de main wordt meegegeven met het result argument van hier)
-    });
+    Locatie.find(callback);
   }
 };
 
