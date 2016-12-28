@@ -17,9 +17,9 @@ var validateSales = require("./validators/validateSales.js");
 
 var app = express();
 app.use(parser.json());
-
+//************************************************************************************************************************
+//************************************************************************************************************************
 //LOCATIONS
-
 
 app.get("/Locations", function (request, response) {
     dalLocations.listAllLocations(function (err, Locations) {
@@ -29,7 +29,6 @@ app.get("/Locations", function (request, response) {
         response.send(Locations);
     });
 }); // getest en werkend
-
 
 app.get("/Locations/:stad", function (request, response) {
     dalLocations.findLocation(request.params.stad, function (err, location) {
@@ -65,7 +64,6 @@ app.post("/Locations", function (request, response) {
     });
 });  //validatie in orde, code geeft fouten door en voegt ook geen foute velden toe.
 // Ook weergeven toegevoegde json toegevoegd
-
 
 app.put("/Locations/:locatieid", function (request, response) {
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
@@ -150,7 +148,6 @@ app.put("/Products/:productid", function (request, response) {
 
 //****************************************************************************************************************
 //****************************************************************************************************************
-
 //SALES
 
 app.get("/Sales", function (request, response) {
@@ -193,6 +190,23 @@ app.post("/Sales", function (request, response) {
         }
         response.send(saletje);
         console.log("Sale" + "\n" + JSON.stringify(saletje) + "\n" + "added \n\n");
+    });
+});//getest en werkend
+
+app.put("/Sales/:saleid", function (request, response) {
+    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet);
+    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet");
+    if (errors > 0) {
+        return;
+    }
+    dalSales.updateSale(request.params.saleid, sale, function (err, saletje) {
+        if (err) {
+            console.log(err);
+        }
+        response.send(saletje);
+        
+        console.log("\n" + "saleid: " + + JSON.stringify(request.body.saleid) + "\n" + "updated \n\n");
+
     });
 });//getest en werkend
 
