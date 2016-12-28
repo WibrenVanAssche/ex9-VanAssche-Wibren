@@ -2,9 +2,15 @@
 ---
 # ex9-VanAssche-Wibren
 
+##disclaimer
+Ik ben begonnen met de code die we in de klas hadden gezien maar had enorm veel problemen van errors en vond de oplossingen niet snel genoeg. 
+Ben dan mongoose beginnen te gebruiken omdat Jonas dit aanraadde.
+
+Heb de code van Jonas ook als basis gebruikt evenals de tutorials die in zijn readme staan.
+
+
 ###inhoud
 
-####Code
 Een API die kan gebruikt worden om het effect van bepaalde acties te monitoren. 
 * vb: zorgt een lunchactie ervoor dat er meer mensen in de cafetaria aanwezig zijn?
 
@@ -21,6 +27,7 @@ https://www.npmjs.com/package/mongoose
 http://mongoosejs.com/docs/models.html
 
 ---
+###Locations
 
 vreemd probleem: tijdens eerste get via mongoose werd mijn zelf aangemaakte 
 'Locations' collectie steeds genegeerd en werd er steed een 'locations' aangemaakt.
@@ -36,3 +43,7 @@ http://mongoosejs.com/docs/guide.html#versionKey
 ---
 update:
 http://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-return-updated-document
+
+----
+validatie wordt deels al gedaan door mongoose maar de errormessages hiervan zijn vaak nogal vaag. 
+Ik voeg dus nog een paar extra checks toe zodat we makkelijker het probleem kunnen opsporen.

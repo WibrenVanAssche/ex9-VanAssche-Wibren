@@ -47,6 +47,8 @@ var Location = function(locatieid,naam,stad,capaciteit){
 app.post("/Locations", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
     
+    var errors = validateLocations.checkvalues(Locatie, "locatieid", "naam", "stad", "capaciteit")
+    
     dalLocations.createLocation(Locatie, function (err, locatie){
        if (err) {
             console.log(err);
@@ -54,7 +56,8 @@ app.post("/Locations", function(request, response){
        response.send(locatie);
     });
 }); //werkt, getest met brussel (1,Refter,Brussel,200)
-    //nog validatie nodig
+    //nog validatie nodig. Veel hiervan wordt eigenlijk wel al gedaan door mongoose zelf. 
+    //hoewel het dan niet steeds duidelijk is wat het probleem net is.
 
 app.put("/Locations/:locatieid", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
