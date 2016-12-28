@@ -47,3 +47,5 @@ http://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-ret
 ----
 validatie wordt deels al gedaan door mongoose maar de errormessages hiervan zijn vaak nogal vaag. 
 Ik voeg dus nog een paar extra checks toe zodat we makkelijker het probleem kunnen opsporen.
+
+http://www.w3schools.com/js/js_datatypes.asp
