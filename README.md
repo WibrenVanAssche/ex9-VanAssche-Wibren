@@ -50,6 +50,7 @@ Ik voeg dus nog een paar extra checks toe zodat we makkelijker het probleem kunn
 
 http://www.w3schools.com/js/js_datatypes.asp
 http://mongoosejs.com/docs/2.7.x/docs/schematypes.html
+http://jasonjl.me/blog/2014/10/23/adding-validation-for-embedded-objects-in-mongoose/ 
 ---
 
 
