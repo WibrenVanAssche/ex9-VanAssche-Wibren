@@ -34,6 +34,6 @@ module.exports = {
         Locatie.create(locatie, callback);
     },
     updateLocation: function (id, newloc, callback) {
-        Locatie.findOneAndUpdate({locatieid: id}, newloc, callback);// newloc is de json met de nieuwe gegevens in
+        Locatie.findOneAndUpdate({locatieid: id}, nnewloc, callback);// newloc is de json met de nieuwe gegevens in
     }
 };

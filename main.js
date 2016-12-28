@@ -9,7 +9,7 @@ var dalAanwezigheden = require("./AanwezighedenStorage.js");
 var dalSales = require("./SalesStorage.js");
 var dalProducts = require("./ProductStorage.js");
 
-var validator = require("./Validate.js");
+var validateLocations = require("./validators/validateLocations.js");
 
 var app = express();
 app.use(parser.json());
@@ -53,7 +53,7 @@ app.post("/Locations", function(request, response){
         }
        response.send(locatie);
     });
-}); //werkt, getest met brussel
+}); //werkt, getest met brussel (1,Refter,Brussel,200)
     //nog validatie nodig
 
 app.put("/Locations/:locatieid", function(request, response){
@@ -65,7 +65,8 @@ app.put("/Locations/:locatieid", function(request, response){
        response.send(locatie);
         
     });
-});
+});// werkt, getest door brussel om te vormen naar pauzelokaal
+   //validatie nodig
 
 app.listen(8000);
 console.log("Server started");
