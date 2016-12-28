@@ -7,26 +7,25 @@ module.exports = {
           console.log("'locatieid' moet groter dan 0 zijn.");  
         }
         
-        else if(typeof list["locatieid"] !== Number){
+        if(typeof list["locatieid"] !== "number"){
           console.log("'locatieid' moet type Number zijn.");  
         }
         
         
-         else if(typeof list["naam"] !== String){
-          console.log("'naam' moet type String zijn.");  
-        }
-        
-        
-        else if(typeof list["stad"] !== String){
+        if(typeof list["stad"] !== "string"){
           console.log("'stad' moet type String zijn.");  
         }
         
         
-        else if(list["capaciteit"] <= 0){
+         if(typeof list["naam"] !== "string"){
+          console.log("'naam' moet type String zijn.");  
+        }
+        
+        if(list["capaciteit"] <= 0){
           console.log("'capaciteit' moet groter dan 0 zijn.");  
         }
         
-        else if(typeof list["capaciteit"] !== Number){
+        if(typeof list["capaciteit"] !== "number"){
           console.log("'capaciteit' moet type Number zijn.");  
         };
     }

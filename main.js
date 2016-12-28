@@ -47,7 +47,7 @@ var Location = function(locatieid,naam,stad,capaciteit){
 app.post("/Locations", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
     
-    var errors = validateLocations.checkvalues(Locatie, "locatieid", "naam", "stad", "capaciteit")
+    var errors = validateLocations.checkvalues(Locatie, "locatieid", "naam", "stad", "capaciteit");
     
     dalLocations.createLocation(Locatie, function (err, locatie){
        if (err) {
