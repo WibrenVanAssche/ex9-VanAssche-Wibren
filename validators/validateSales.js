@@ -20,19 +20,19 @@ module.exports = {
             console.log("Vul een waarde in voor 'date'.");
             errors++;
         }
-       
+
 //****************************************************************************
         if (list["producten"] == "") {
             console.log("Vul een waarde in voor 'producten'.");
             errors++;
-        }     
-       
+        }
+
 //****************************************************************************     
         if (typeof list["omzet"] !== "number") {
             console.log("'omzet' moet type Number zijn.");
             errors++;
         }
-        
+
         return errors;
     }
 };

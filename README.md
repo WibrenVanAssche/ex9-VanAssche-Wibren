@@ -27,7 +27,7 @@ https://www.npmjs.com/package/mongoose
 http://mongoosejs.com/docs/models.html
 
 ---
-###Locations
+###Locations+Products+Sales
 
 vreemd probleem: tijdens eerste get via mongoose werd mijn zelf aangemaakte 
 'Locations' collectie steeds genegeerd en werd er steed een 'locations' aangemaakt.
@@ -49,6 +49,7 @@ validatie wordt deels al gedaan door mongoose maar de errormessages hiervan zijn
 Ik voeg dus nog een paar extra checks toe zodat we makkelijker het probleem kunnen opsporen.
 
 http://www.w3schools.com/js/js_datatypes.asp
+http://mongoosejs.com/docs/2.7.x/docs/schematypes.html
 ---
 
-###Products
+

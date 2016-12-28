@@ -76,8 +76,8 @@ app.put("/Locations/:locatieid", function (request, response) {
             console.log(err);
         }
         response.send(locatie);
-        
-        console.log("\n" + "Locatieid: " + + JSON.stringify(request.body.locatieid) + "\n" + "updated \n\n");
+
+        console.log("\n" + "Locatieid: " + +JSON.stringify(request.body.locatieid) + "\n" + "updated \n\n");
 
     });
 });//werkt volledig, validatie is ook in orde gebracht plus mededeling na succesvolle update
@@ -105,10 +105,10 @@ app.get("/Products/:naam", function (request, response) {
 
 });//getest en werkend
 
-var Product = function (productid, naam, prijs){
-  this.productid = productid;
-  this.naam = naam;
-  this.prijs = prijs;
+var Product = function (productid, naam, prijs) {
+    this.productid = productid;
+    this.naam = naam;
+    this.prijs = prijs;
 };
 
 app.post("/Products", function (request, response) {
@@ -139,8 +139,8 @@ app.put("/Products/:productid", function (request, response) {
             console.log(err);
         }
         response.send(productje);
-        
-        console.log("\n" + "Productid: " + + JSON.stringify(request.body.productid) + "\n" + "updated \n\n");
+
+        console.log("\n" + "Productid: " + +JSON.stringify(request.body.productid) + "\n" + "updated \n\n");
 
     });
 });//getest en werkend 
@@ -169,11 +169,11 @@ app.get("/Sales/:id", function (request, response) {
 
 });//getest en werkend
 
-var Sale = function (saleid, date, producten, omzet){
-    this.saleid=saleid;
-    this.date=date;
-    this.producten=producten;
-    this.omzet=omzet;
+var Sale = function (saleid, date, producten, omzet) {
+    this.saleid = saleid;
+    this.date = date;
+    this.producten = producten;
+    this.omzet = omzet;
 };
 
 app.post("/Sales", function (request, response) {
@@ -204,12 +204,13 @@ app.put("/Sales/:saleid", function (request, response) {
             console.log(err);
         }
         response.send(saletje);
-        
-        console.log("\n" + "saleid: " + + JSON.stringify(request.body.saleid) + "\n" + "updated \n\n");
+
+        console.log("\n" + "saleid: " + +JSON.stringify(request.body.saleid) + "\n" + "updated \n\n");
 
     });
 });//getest en werkend
 
+//eigenlijk zou de resource "aanwezigheden" hier nog achter moeten komen maar we moesten er maar 3 doen.
 app.listen(8000);
 console.log("Server started");
 

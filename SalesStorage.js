@@ -8,14 +8,17 @@ var SaleSchema = mongoose.Schema({
     },
     date: {
         type: String,
-        required: true  //format moet eigenlijk niet string zijn maar vond de documentatie rond de formaten notgal verwarrend dus heb besloten om deze zo te laten. ligt niet echt binnen de scope
+        required: true  //format moet eigenlijk niet string zijn maar vond de documentatie rond de formaten notgal verwarrend 
+                        //dus heb besloten om deze zo te laten. ligt niet echt binnen de scope
     },
     producten: [{
             productid: {
                 type: Number,
                 required: true
             }
-        }],
+        }], //deze zou eigenlijk moeten verwijzen naar de productid in het product schema. 
+            //Heb dit opgezocht maar uiteindelijk besloten om het niet te doen. Dit zou vooral veel tijd in beslag nemen
+    
     
     omzet: {
         type: Number,
