@@ -93,6 +93,15 @@ app.get("/Products", function (request, response) {
     });
 });//getest en werkend
 
+app.get("/Products/:naam", function (request, response) {
+    dalProducts.findProduct(request.params.naam, function (err, product) {
+        if (err) {
+            throw err;
+        }
+        response.send(product);
+    });
+
+});//getest en werkend
 
 
 
