@@ -7,21 +7,16 @@ var SaleSchema = mongoose.Schema({
         unique: true
     },
     date: {
-        type: Date, 
-        default: Date.now
+        type: String,
+        required: true  //format moet eigenlijk niet string zijn maar vond de documentatie rond de formaten notgal verwarrend dus heb besloten om deze zo te laten. ligt niet echt binnen de scope
     },
-    products: [{
+    producten: [{
             productid: {
                 type: Number,
                 required: true
             }
-        
-    }],
+        }],
     
-    name: {
-      first: { type: String, required: true, trim: true},
-      last: { type: String, required: true, trim: true}
-  },
     omzet: {
         type: Number,
         required: true
@@ -32,16 +27,16 @@ var Sale = mongoose.model('sales', SaleSchema);
 
 module.exports = {
 
-    listAllProducts: function (callback) {
+    listAllSales: function (callback) {
         Sale.find(callback);
     },
-    findProduct: function (saleid, callback) {
+    findSale: function (saleid, callback) {
         Sale.find({saleid: saleid}, callback);
     },
-    createProduct: function (sale, callback) {
+    createSale: function (sale, callback) {
         Sale.create(sale, callback);
     },
-    updateProduct: function (id, newsale, callback) {
+    updateSale: function (id, newsale, callback) {
         Sale.findOneAndUpdate({saleid: id}, newsale, callback);// newsale is de json met de nieuwe gegevens in
     }
 };

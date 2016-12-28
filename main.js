@@ -152,6 +152,24 @@ app.put("/Products/:productid", function (request, response) {
 
 //SALES
 
+app.get("/Sales", function (request, response) {
+    dalSales.listAllSales(function (err, Sales) {
+        if (err) {
+            throw err;
+        }
+        response.send(Sales);
+    });
+});//getest en werkend
+
+app.get("/Sales/:id", function (request, response) {
+    dalSales.findSale(request.params.id, function (err, sale) {
+        if (err) {
+            throw err;
+        }
+        response.send(sale);
+    });
+
+});//getest en werkend
 
 
 
