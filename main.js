@@ -48,16 +48,20 @@ app.post("/Locations", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
     
     var errors = validateLocations.checkvalues(Locatie, "locatieid", "naam", "stad", "capaciteit");
-    
+    if(errors > 0){
+        return;
+    } 
+        
     dalLocations.createLocation(Locatie, function (err, locatie){
        if (err) {
             console.log(err);
         }
        response.send(locatie);
+       console.log("Location"+ "\n" + JSON.stringify(locatie)+ "\n" + "added");
     });
-}); //werkt, getest met brussel (1,Refter,Brussel,200)
-    //nog validatie nodig. Veel hiervan wordt eigenlijk wel al gedaan door mongoose zelf. 
-    //hoewel het dan niet steeds duidelijk is wat het probleem net is.
+});  //validatie in orde, code geeft fouten door en voegt ook geen foute velden toe.
+    // Ook weergeven toegevoegde json toegevoegd
+    
 
 app.put("/Locations/:locatieid", function(request, response){
     var Locatie = new Location(request.body.locatieid, request.body.naam, request.body.stad, request.body.capaciteit);
