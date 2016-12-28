@@ -82,6 +82,26 @@ app.put("/Locations/:locatieid", function (request, response) {
 
 //**********************************************************************************************************************************
 //**********************************************************************************************************************************
+//PRODUCTS
+
+app.get("/Products", function (request, response) {
+    dalProducts.listAllProducts(function (err, Products) {
+        if (err) {
+            throw err;
+        }
+        response.send(Products);
+    });
+});//getest en werkend
+
+
+
+
+
+
+
+
+
+
 app.listen(8000);
 console.log("Server started");
 
