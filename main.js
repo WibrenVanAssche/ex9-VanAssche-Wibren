@@ -129,8 +129,28 @@ app.post("/Products", function (request, response) {
     });
 });//getest en werkend
 
+app.put("/Products/:productid", function (request, response) {
+    var product = new Product(request.body.productid, request.body.naam, request.body.prijs);
+    var errors = validateProducts.checkvalues(product, "productid", "naam", "prijs");
+    if (errors > 0) {
+        return;
+    }
+    dalProducts.updateProduct(request.params.productid, product, function (err, productje) {
+        if (err) {
+            console.log(err);
+        }
+        response.send(productje);
+        
+        console.log("\n" + "Productid: " + + JSON.stringify(request.body.productid) + "\n" + "updated \n\n");
+
+    });
+});//getest en werkend 
 
 
+//****************************************************************************************************************
+//****************************************************************************************************************
+
+//SALES
 
 
 
