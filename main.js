@@ -13,6 +13,7 @@ var dalProducts = require("./ProductStorage.js");
 //validatie files
 var validateLocations = require("./validators/validateLocations.js");
 var validateProducts = require("./validators/validateProducts.js");
+var validateSales = require("./validators/validateSales.js");
 
 var app = express();
 app.use(parser.json());
@@ -171,7 +172,29 @@ app.get("/Sales/:id", function (request, response) {
 
 });//getest en werkend
 
+var Sale = function (saleid, date, producten, omzet){
+    this.saleid=saleid;
+    this.date=date;
+    this.producten=producten;
+    this.omzet=omzet;
+};
 
+app.post("/Sales", function (request, response) {
+    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet);
+
+    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet");
+    if (errors > 0) {
+        return;
+    }
+
+    dalSales.createSale(sale, function (err, saletje) {
+        if (err) {
+            console.log(err);
+        }
+        response.send(saletje);
+        console.log("Sale" + "\n" + JSON.stringify(saletje) + "\n" + "added \n\n");
+    });
+});//getest en werkend
 
 app.listen(8000);
 console.log("Server started");
