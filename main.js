@@ -4,12 +4,15 @@ var parser = require("body-parser");
 var mongoose = require("mongoose");
 mongoose.connect("mongodb://localhost/EX9DB");
 
+//storage files
 var dalLocations = require("./LocationStorage.js");
 var dalAanwezigheden = require("./AanwezighedenStorage.js");
 var dalSales = require("./SalesStorage.js");
 var dalProducts = require("./ProductStorage.js");
 
+//validatie files
 var validateLocations = require("./validators/validateLocations.js");
+var validateProducts = require("./validators/validateProducts.js");
 
 var app = express();
 app.use(parser.json());
@@ -103,7 +106,28 @@ app.get("/Products/:naam", function (request, response) {
 
 });//getest en werkend
 
+var Product = function (productid, naam, prijs){
+  this.productid = productid;
+  this.naam = naam;
+  this.prijs = prijs;
+};
 
+app.post("/Products", function (request, response) {
+    var product = new Product(request.body.productid, request.body.naam, request.body.prijs);
+
+    var errors = validateProducts.checkvalues(product, "productid", "naam", "prijs");
+    if (errors > 0) {
+        return;
+    }
+
+    dalProducts.createProduct(product, function (err, productje) {
+        if (err) {
+            console.log(err);
+        }
+        response.send(productje);
+        console.log("Product" + "\n" + JSON.stringify(productje) + "\n" + "added \n\n");
+    });
+});//getest en werkend
 
 
 

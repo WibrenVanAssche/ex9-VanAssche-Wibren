@@ -2,7 +2,7 @@
 
 module.exports = {
     checkvalues: function (list) {
-        var errors = 0
+        var errors = 0;
 
         if (list["locatieid"] <= 0) {
             console.log("'locatieid' moet groter dan 0 zijn.");
