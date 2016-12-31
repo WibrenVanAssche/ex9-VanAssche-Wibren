@@ -32,6 +32,11 @@ module.exports = {
             console.log("'omzet' moet type Number zijn.");
             errors++;
         }
+ //***************************************************************************     
+         if (typeof list["locatieid"] !== "number") {
+            console.log("'locatieid' moet type Number zijn.");
+            errors++;
+        }
 
         return errors;
     }

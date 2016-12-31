@@ -6,7 +6,8 @@ mongoose.connect("mongodb://localhost/EX9DB");
 
 //storage files
 var dalLocations = require("./LocationStorage.js");
-var dalAanwezigheden = require("./AanwezighedenStorage.js");
+//var dalAanwezigheden = require("./AanwezighedenStorage.js");    
+//wordt nog niet gebruikt in deze implementatie
 var dalSales = require("./SalesStorage.js");
 var dalProducts = require("./ProductStorage.js");
 
@@ -169,17 +170,18 @@ app.get("/Sales/:id", function (request, response) {
 
 });//getest en werkend
 
-var Sale = function (saleid, date, producten, omzet) {
+var Sale = function (saleid, date, producten, omzet, locatieid) {
     this.saleid = saleid;
     this.date = date;
     this.producten = producten;
     this.omzet = omzet;
+    this.locatieid = locatieid
 };
 
 app.post("/Sales", function (request, response) {
-    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet);
+    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet, request.body.locatieid);
 
-    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet");
+    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet", "locatieid");
     if (errors > 0) {
         return;
     }

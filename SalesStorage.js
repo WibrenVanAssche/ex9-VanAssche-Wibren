@@ -23,7 +23,12 @@ var SaleSchema = mongoose.Schema({
     omzet: {
         type: Number,
         required: true
-    }
+    },
+    
+    locatieid: {
+        type: Number,
+        required: true
+    }//was ik eerst vergeten toe te voegen maar is natuurlijk nodig om te weten op welke locatie de sale gebeurde.
 });
 
 var Sale = mongoose.model('sales', SaleSchema);
