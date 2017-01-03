@@ -62,4 +62,9 @@ Onze cases liggen dicht bij elkaar (zelfde begin in les) dus was het makkelijker
 Wel hebben we alle 3 individueel de taak gemaakt (te zien aan onze commits). 
 Door hen met bepaalde problemen te helpen heb ik extra inzicht gekregen in de werking en mogelijke problemen van dit soort projecten.
 
+---
+ik heb na afwerking van de code nog een veld locatieid toegevoegd aan sales zodat er kan gevolgd worden welke sale waar gebeurde. was dit eerst vergeten. getest en werkend.
+
+Thomas heeft me ook nog op een kleine syntax fout gewezen in mijn object aanmaak van Sales (';' vergeten toen ik locatieid toevoegde.)
+
 

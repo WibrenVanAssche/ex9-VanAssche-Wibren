@@ -175,7 +175,7 @@ var Sale = function (saleid, date, producten, omzet, locatieid) {
     this.date = date;
     this.producten = producten;
     this.omzet = omzet;
-    this.locatieid = locatieid
+    this.locatieid = locatieid;
 };
 
 app.post("/Sales", function (request, response) {
@@ -193,11 +193,11 @@ app.post("/Sales", function (request, response) {
         response.send(saletje);
         console.log("Sale" + "\n" + JSON.stringify(saletje) + "\n" + "added \n\n");
     });
-});//getest en werkend
+});//getest en werkend ook met locatie id
 
 app.put("/Sales/:saleid", function (request, response) {
-    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet);
-    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet");
+    var sale = new Sale(request.body.saleid, request.body.date, request.body.producten, request.body.omzet, request.body.locatieid);
+    var errors = validateSales.checkvalues(sale, "saleid", "date", "producten", "omzet","locatieid");
     if (errors > 0) {
         return;
     }
@@ -210,7 +210,7 @@ app.put("/Sales/:saleid", function (request, response) {
         console.log("\n" + "saleid: " + +JSON.stringify(request.body.saleid) + "\n" + "updated \n\n");
 
     });
-});//getest en werkend
+});//getest en werkend ook met locatieid
 
 //eigenlijk zou de resource "aanwezigheden" hier nog achter moeten komen maar we moesten er maar 3 doen.
 app.listen(8000);
