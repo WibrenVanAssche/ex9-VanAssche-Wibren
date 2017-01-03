@@ -47,10 +47,17 @@ http://stackoverflow.com/questions/32811510/mongoose-findoneandupdate-doesnt-ret
 ----
 validatie wordt deels al gedaan door mongoose maar de errormessages hiervan zijn vaak nogal vaag. 
 Ik voeg dus nog een paar extra checks toe zodat we makkelijker het probleem kunnen opsporen.
+---
+Voor het toevoegen van de productid's in de array bij Sales heb ik niet de echte ID's van products ingevoegd.
+Dit werd wel aangehaald in de laatste onderstaande bron maar ik heb er voor gekozen om dit in deze oplevering nog niet te implementeren.
 
 http://www.w3schools.com/js/js_datatypes.asp
 http://mongoosejs.com/docs/2.7.x/docs/schematypes.html
 http://jasonjl.me/blog/2014/10/23/adding-validation-for-embedded-objects-in-mongoose/ 
 ---
+Ik heb voor dit project veel input gegeven aan en gekregen van zowel Jeroen als Thomas. 
+Onze cases liggen dicht bij elkaar (zelfde begin in les) dus was het makkelijker om elkaars problemen te snappen. 
+Wel hebben we alle 3 individueel de taak gemaakt (te zien aan onze commits). 
+Door hen met bepaalde problemen te helpen heb ik extra inzicht gekregen in de werking en mogelijke problemen van dit soort projecten.
 
 
