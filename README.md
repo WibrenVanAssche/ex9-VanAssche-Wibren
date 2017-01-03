@@ -52,7 +52,9 @@ Voor het toevoegen van de productid's in de array bij Sales heb ik niet de echte
 Dit werd wel aangehaald in de laatste onderstaande bron maar ik heb er voor gekozen om dit in deze oplevering nog niet te implementeren.
 
 http://www.w3schools.com/js/js_datatypes.asp
+
 http://mongoosejs.com/docs/2.7.x/docs/schematypes.html
+
 http://jasonjl.me/blog/2014/10/23/adding-validation-for-embedded-objects-in-mongoose/ 
 ---
 Ik heb voor dit project veel input gegeven aan en gekregen van zowel Jeroen als Thomas. 
